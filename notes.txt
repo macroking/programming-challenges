@@ -1,0 +1,18 @@
+Greedy Algorithms
+    To find a localized optimum solution, which may eventually lead to globally optimized solutions. However, generally greedy algorithms do not provide globally optimized solutions.
+        Travelling Salesman Problem
+        Prim's Minimal Spanning Tree Algorithm
+        Kruskal's Minimal Spanning Tree Algorithm
+        Dijkstra's Minimal Spanning Tree Algorithm
+
+Divide and Conquer
+    Dividing the given problem into smaller sub-problems and then solving each of the sub-problem independently. When the problem can not be further sub divided, we start merging the solution to each of the sub-problem to arrive at the solution for the bigger problem
+        Merge Sort
+        Quick Sort
+        Kruskal's Minimal Spanning Tree Algorithm
+        Binary Search
+
+The important examples of Dynamic programming algorithms are −
+    Fibonacci number series
+    Knapsack problem
+    Tower of Hanoi
