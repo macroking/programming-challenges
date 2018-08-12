@@ -19,6 +19,17 @@ class LinkedList(object):
         n.next = self.head
         self.head = n
 
+    def count_loop_length(self, node):
+        '''
+        Find the loop length
+        '''
+        cnt = 0
+        temp = node
+        while(temp.next != node):
+            cnt += 1
+            temp = temp.next
+        return cnt
+
     def detect_loop(self):
         cur_s = self.head
         cur_f = self.head
@@ -26,9 +37,10 @@ class LinkedList(object):
         while(cur_f and cur_s and cur_f.next):
             cur_s = cur_s.next
             cur_f = cur_f.next.next
+            print (cur_s.data, cur_f.data)
             if cur_s == cur_f:
                 print('Detected loop')
-                return
+                return self.count_loop_length(cur_s)
 
 if __name__ == '__main__':
     llist = LinkedList()
@@ -36,7 +48,7 @@ if __name__ == '__main__':
     llist.insert(4)
     llist.insert(15)
     llist.insert(10)
-
     # Create a loop for testing
     llist.head.next.next.next.next = llist.head
-    llist.detect_loop()
+    cnt = llist.detect_loop()
+    print('Loop length ', cnt)
