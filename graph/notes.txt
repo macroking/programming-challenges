@@ -1,0 +1,95 @@
+A Graph is a non-linear data structure consisting of nodes and edges.
+The nodes are sometimes also referred to as vertices and the edges are lines or arcs that connect any two nodes in the graph.
+
+A Graph consists of a finite set of vertices(or nodes) and set of Edges which connect a pair of nodes.
+
+Following two are the most commonly used representations of a graph.
+1. Adjacency Matrix
+2. Adjacency List
+
+Adjacency Matrix:
+Adjacency Matrix is a 2D array of size V x V where V is the number of vertices in a graph. Let the 2D array be adj[][], a slot adj[i][j] = 1 indicates that there is an edge from vertex i to vertex j. Adjacency matrix for undirected graph is always symmetric. Adjacency Matrix is also used to represent weighted graphs. If adj[i][j] = w, then there is an edge from vertex i to vertex j with weight w.
+
+* Removing an edge: O(1)
+* Quering an edge exists: O(1)
+* Space O(V^2)
+
+
+Adjacency List:
+An array of linked lists is used. Size of the array is equal to the number of vertices. Let the array be array[]. An entry array[i] represents the linked list of vertices adjacent to the ith vertex. This representation can also be used to represent a weighted graph. The weights of edges can be stored in nodes of linked lists. Following is adjacency list representation of the above graph.
+
+* Space: O(|V|+|E|)
+* Space worst case: O(V^2)
+
+
+Breadth First Traversal:
+    BFS (or Search) for a graph is similar to Breadth First Traversal of a tree (See method 2 of this post). The only catch here is, unlike trees, graphs may contain cycles, so we may come to the same node again. To avoid processing a node more than once, we use a boolean visited array. For simplicity, it is assumed that all vertices are reachable from the starting vertex.
+
+    **IT USES QUEUE
+
+Applications of Breadth First Traversal:
+
+We have earlier discussed Breadth First Traversal Algorithm for Graphs. We have also discussed Applications of Depth First Traversal. In this article, applications of Breadth First Search are discussed.
+
+1) Shortest Path and Minimum Spanning Tree for unweighted graph In an unweighted graph, the shortest path is the path with least number of edges. With Breadth First, we always reach a vertex from given source using the minimum number of edges. Also, in case of unweighted graphs, any spanning tree is Minimum Spanning Tree and we can use either Depth or Breadth first traversal for finding a spanning tree.
+
+2) Peer to Peer Networks. In Peer to Peer Networks like BitTorrent, Breadth First Search is used to find all neighbor nodes.
+
+3) Crawlers in Search Engines: Crawlers build index using Breadth First. The idea is to start from source page and follow all links from source and keep doing same. Depth First Traversal can also be used for crawlers, but the advantage with Breadth First Traversal is, depth or levels of the built tree can be limited.
+
+4) Social Networking Websites: In social networks, we can find people within a given distance ‘k’ from a person using Breadth First Search till ‘k’ levels.
+
+
+5) GPS Navigation systems: Breadth First Search is used to find all neighboring locations.
+
+6) Broadcasting in Network: In networks, a broadcasted packet follows Breadth First Search to reach all nodes.
+
+7) In Garbage Collection: Breadth First Search is used in copying garbage collection using Cheney’s algorithm. Refer this and for details. Breadth First Search is preferred over Depth First Search because of better locality of reference:
+
+8) Cycle detection in undirected graph: In undirected graphs, either Breadth First Search or Depth First Search can be used to detect cycle. In directed graph, only depth first search can be used.
+
+9) Ford–Fulkerson algorithm In Ford-Fulkerson algorithm, we can either use Breadth First or Depth First Traversal to find the maximum flow. Breadth First Traversal is preferred as it reduces worst case time complexity to O(VE2).
+
+10) To test if a graph is Bipartite We can either use Breadth First or Depth First Traversal.
+
+11) Path Finding We can either use Breadth First or Depth First Traversal to find if there is a path between two vertices.
+
+12) Finding all nodes within one connected component: We can either use Breadth First or Depth First Traversal to find all nodes reachable from a given node.
+
+
+Depth First Search or DFS for a Graph
+    Depth First Traversal (or Search) for a graph is similar to Depth First Traversal of a tree. The only catch here is, unlike trees, graphs may contain cycles, so we may come to the same node again. To avoid processing a node more than once, we use a boolean visited array.
+
+    The DFS algorithm is a recursive algorithm that uses the idea of backtracking. It involves exhaustive searches of all the nodes by going ahead, if possible, else by backtracking.
+
+    Here, the word backtrack means that when you are moving forward and there are no more nodes along the current path, you move backwards on the same path to find nodes to traverse. All the nodes will be visited on the current path till all the unvisited nodes have been traversed after which the next path will be selected.
+
+    ** IT USES STACK
+
+Applications of Depth First Search:
+
+1) For an unweighted graph, DFS traversal of the graph produces the minimum spanning tree and all pair shortest path tree.
+
+2) Detecting cycle in a graph
+A graph has cycle if and only if we see a back edge during DFS. So we can run DFS for the graph and check for back edges. (See this for details)
+
+3) Path Finding
+We can specialize the DFS algorithm to find a path between two given vertices u and z.
+i) Call DFS(G, u) with u as the start vertex.
+ii) Use a stack S to keep track of the path between the start vertex and the current vertex.
+iii) As soon as destination vertex z is encountered, return the path as the
+contents of the stack
+
+4) Topological Sorting
+Topological Sorting is mainly used for scheduling jobs from the given dependencies among jobs. In computer science, applications of this type arise in instruction scheduling, ordering of formula cell evaluation when recomputing formula values in spreadsheets, logic synthesis, determining the order of compilation tasks to perform in makefiles, data serialization, and resolving symbol dependencies in linkers [2].
+
+5) To test if a graph is bipartite
+We can augment either BFS or DFS when we first discover a new vertex, color it opposited its parents, and for each other edge, check it doesn’t link two vertices of the same color. The first vertex in any connected component can be red or black! See this for details.
+
+6) Finding Strongly Connected Components of a graph A directed graph is called strongly connected if there is a path from each vertex in the graph to every other vertex. (See this for DFS based algo for finding Strongly Connected Components)
+
+7) Solving puzzles with only one solution, such as mazes. (DFS can be adapted to find all solutions to a maze by only including nodes on the current path in the visited set.)
+
+
+GRAPH ALGORITHMS:
+1. Kosaraju’s Strongly Connected Component Algorithm.

@@ -3,7 +3,6 @@ from collections import defaultdict
 import os
 import sys
 
-
 class Graph(object):
     def __init__(self):
         self.graph = defaultdict(list)
@@ -11,20 +10,20 @@ class Graph(object):
     def addEdge(self, u, v):
         self.graph[u].append(v)
 
-    def DFSUtil(self, v, visited):
-        visited[v] = True
-        print(v, end=" ")
+    def BFS(self, s):
+        visited = [False] * (len(self.graph))
+        queue = []
 
-        for i in self.graph[v]:
-            if visited[i] == False:
-                self.DFSUtil(i, visited)
+        queue.append(s)
+        visited[s] = True
 
-    def DFS(self):
-        v = len(self.graph)
-        visited = [False] * v
-        for i in range(v):
-            if visited[i] == False:
-                self.DFSUtil(i, visited)
+        while queue:
+            s = queue.pop(0)
+            print(s, end=" ")
+            for i in self.graph[s]:
+                if visited[i] == False:
+                    queue.append(i)
+                    visited[i] = True
 
 if __name__ == '__main__':
     g = Graph()
@@ -35,4 +34,4 @@ if __name__ == '__main__':
     g.addEdge(2, 3)
     g.addEdge(3, 3)
     print('Following is Breadth First Traversal')
-    g.DFS()
+    g.BFS(0)
