@@ -1,6 +1,6 @@
 from __future__ import print_function
 from array  import *
-arr = array('i', [1, 2, 3, 4, 5, 6, 7])
+arr = array('i', [1, 2, 3, 4, 5])
 # Aproach 1
 d = 4
 def rotate_array(lst, start, end):
