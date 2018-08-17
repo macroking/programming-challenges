@@ -27,4 +27,4 @@ class Solution:
             op.append(temp)
         return op
 c = Solution()
-print c.addTwoNumbers([2, 4, 3], [5, 6, 4])
+print(c.addTwoNumbers([2, 4, 3], [5, 6, 4]))

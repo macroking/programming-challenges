@@ -1,7 +1,7 @@
 def bubblesort(data_list):
     data_list_len = len(data_list)
-    for i in xrange(data_list_len-1, 0, -1):
-        for j in xrange(i):
+    for i in range(data_list_len-1, 0, -1):
+        for j in range(i):
             if data_list[j] < data_list[j+1]:
                 data_list[j], data_list[j+1] = data_list[j+1], data_list[j]
     return data_list

@@ -6,7 +6,7 @@ def selection_sort(data_list):
             if data_list[y] < data_list[min_idx]:
                 min_idx = y
         data_list[x], data_list[min_idx] = data_list[min_idx], data_list[x]
-        print  data_list
+    print (data_list)
 
 
 if __name__ == '__main__':
