@@ -1,0 +1,4 @@
+1.  Sparse Table Algorithm
+2.  Prefix sum array
+3.  Segment Tree
+4.  Segment tree with lazy updates
